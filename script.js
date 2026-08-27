@@ -1,5 +1,3 @@
-const pectoralDerecho = document.getElementById("pectoral_derecho");
-
-pectoralDerecho.addEventListener("click", () => {
-    pectoralDerecho.style.fill = "red";
-});
+function seleccionarMusculo(musculo) {
+    musculo.style.fill = "red";
+}
