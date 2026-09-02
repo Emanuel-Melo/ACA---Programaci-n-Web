@@ -5,6 +5,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #d4af37;
 }
 
 main {
@@ -23,9 +25,15 @@ main {
 }
 
 .musculo path {
-    fill: black;
+    fill: #d4af37;
+    stroke: #4a2f12;
 }
 
 .musculo.seleccionado path {
-    fill: red;
+    fill: #8c6b1f;
+    stroke: #4a2f12;
+}
+
+[id^="Silueta"] {
+    stroke: #d4af37;
 }
