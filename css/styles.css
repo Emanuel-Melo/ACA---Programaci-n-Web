@@ -1,3 +1,9 @@
+@import url("anatomy.css");
+@import url("buttons.css");
+@import url("hero.css");
+@import url("navbar.css");
+@import url("responsive.css");
+
 * {
     box-sizing: border-box;
 }
@@ -31,6 +37,13 @@ main {
     padding: 76px 0 48px;
 }
 
+main::after {
+    content: "";
+    display: block;
+    flex: 0 0 800px;
+    height: 800px;
+}
+
 h1 {
     margin: 0;
     font-size: 30px;
@@ -40,11 +53,11 @@ h1 {
 
 .anatomy-layout {
     width: 100vw;
-    min-height: calc(100svh - 76px);
+    min-height: calc(100svh + 800px - 76px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 36px;
     overflow: visible;
     --scroll-progress: 0;
@@ -56,7 +69,7 @@ h1 {
 }
 
 .anatomy-container {
-    display: grid;
+    display: none;
     place-items: center;
     padding: 24px;
     border: 1px solid var(--deep-brown);
@@ -73,6 +86,9 @@ h1 {
 
 .body-reference {
     display: block;
+    position: sticky;
+    top: 76px;
+    z-index: 2;
     flex: 0 0 calc((100svh - 76px) - ((100svh - 491px) * var(--scroll-progress)));
     width: 100vw;
     height: calc((100svh - 76px) - ((100svh - 491px) * var(--scroll-progress)));
@@ -86,19 +102,14 @@ h1 {
 }
 
 .anatomy-layout.scrolled {
-    display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
-    align-items: start;
-    width: min(100% - 48px, 900px);
-    min-height: auto;
-    padding-top: 36px;
-    gap: 28px;
+    display: flex;
+    width: 100vw;
+    min-height: calc(100svh + 800px - 76px);
+    padding-top: 0;
 }
 
 .anatomy-layout.scrolled .body-reference {
-    width: min(100%, 415px);
-    justify-self: center;
-    transform: scale(1);
+    width: 100vw;
 }
 
 .anatomy-layout.scrolled .hero-copy,
@@ -447,24 +458,26 @@ h1 {
     }
 
     .anatomy-layout {
-        min-height: calc(100svh - 64px);
+        min-height: calc(100svh + 800px - 64px);
         gap: 20px;
     }
 
     .anatomy-layout.scrolled {
         display: flex;
-        width: min(100% - 32px, 520px);
-        padding-top: 24px;
+        width: 100vw;
+        min-height: calc(100svh + 800px - 64px);
+        padding-top: 0;
         gap: 20px;
     }
 
     .body-reference {
+        top: 64px;
         flex-basis: calc((100svh - 64px) - ((100svh - 479px) * var(--scroll-progress)));
         width: 100vw;
         height: calc((100svh - 64px) - ((100svh - 479px) * var(--scroll-progress)));
     }
 
     .anatomy-layout.scrolled .body-reference {
-        width: min(100%, 415px);
+        width: 100vw;
     }
 }

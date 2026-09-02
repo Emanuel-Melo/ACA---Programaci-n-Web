@@ -1,0 +1,24 @@
+.anatomy-container svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 415px;
+}
+
+.musculo {
+	cursor: pointer;
+}
+
+.musculo path {
+	fill: var(--gold);
+	stroke: var(--deep-brown);
+}
+
+.musculo.seleccionado path {
+	fill: var(--bronze);
+	stroke: var(--deep-brown);
+}
+
+[id^="Silueta"] {
+	stroke: var(--gold);
+}

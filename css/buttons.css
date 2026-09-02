@@ -1,0 +1,15 @@
+.header-actions button,
+.primary-action,
+.secondary-action {
+	cursor: pointer;
+}
+
+.primary-action,
+.secondary-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	padding: 10px 14px;
+	border-radius: 7px;
+	text-decoration: none;
+}

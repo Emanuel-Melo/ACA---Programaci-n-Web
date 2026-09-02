@@ -1,0 +1,13 @@
+.hero-copy,
+.selection-note,
+.progress-panel,
+.muscle-groups {
+	position: absolute;
+	z-index: 3;
+}
+
+.hero-copy {
+	top: 17vh;
+	left: 4vw;
+	width: min(360px, 31vw);
+}

@@ -1,0 +1,14 @@
+@media (max-width: 720px) {
+	.site-header {
+		left: 18px;
+		right: 18px;
+	}
+
+	.main-nav {
+		display: none;
+	}
+
+	.group-list {
+		overflow-x: auto;
+	}
+}

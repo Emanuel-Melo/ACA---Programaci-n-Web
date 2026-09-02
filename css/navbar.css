@@ -1,0 +1,17 @@
+.site-header {
+	position: absolute;
+	z-index: 4;
+	top: 20px;
+	left: 4vw;
+	right: 4vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 28px;
+}
+
+.main-nav {
+	display: flex;
+	align-items: center;
+	gap: 28px;
+}
