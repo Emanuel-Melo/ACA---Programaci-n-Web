@@ -11,7 +11,6 @@ export function initScrollAnimation() {
 			const progress = Math.min(window.scrollY / 800, 1);
 
 			anatomyLayout.style.setProperty("--scroll-progress", progress);
-			anatomyLayout.classList.toggle("scrolled", progress >= 0.98);
 			scrollFrame = null;
 		});
 	}, { passive: true });
