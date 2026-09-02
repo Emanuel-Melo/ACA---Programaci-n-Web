@@ -1,5 +1,7 @@
-const pectoralDerecho = document.getElementById("pectoral_derecho");
+const musculos = document.querySelectorAll(".musculo");
 
-pectoralDerecho.addEventListener("click", () => {
-    pectoralDerecho.style.fill = "red";
+musculos.forEach((musculo) => {
+    musculo.addEventListener("click", () => {
+        musculo.classList.toggle("seleccionado");
+    });
 });

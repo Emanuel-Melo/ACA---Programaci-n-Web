@@ -17,3 +17,15 @@ main {
 .anatomy-container {
     width: min(100%, 500px);
 }
+
+.musculo {
+    cursor: pointer;
+}
+
+.musculo path {
+    fill: black;
+}
+
+.musculo.seleccionado path {
+    fill: red;
+}
