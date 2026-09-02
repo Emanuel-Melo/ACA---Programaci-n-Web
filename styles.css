@@ -4,27 +4,37 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     background-color: #000000;
     color: #d4af37;
+    overflow-x: hidden;
 }
 
 main {
     min-height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px 0 48px;
+    padding: 0 0 48px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .anatomy-layout {
-    width: min(100% - 32px, 980px);
-    min-height: calc(100vh - 130px);
+    width: 100vw;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 36px;
+    overflow: visible;
 }
 
 .anatomy-container,
@@ -50,12 +60,290 @@ main {
 
 .body-reference {
     display: block;
-    width: min(90vw, 680px);
-    height: 480px;
+    flex: 0 0 100svh;
+    width: 100vw;
+    height: 100svh;
     object-fit: cover;
     object-position: center top;
-    border-radius: 18px;
+    border-radius: 0;
     background: #080604;
+    transform: scale(1.3);
+    transform-origin: center top;
+}
+
+.site-header {
+    position: absolute;
+    z-index: 4;
+    top: 20px;
+    left: 4vw;
+    right: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.brand-lockup {
+    min-width: 190px;
+}
+
+.brand-lockup span {
+    display: block;
+    margin-top: 2px;
+    color: #8d806d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.main-nav a,
+.header-actions button,
+.secondary-action {
+    color: #8d806d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main-nav a {
+    padding: 10px 0 8px;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #d4af37;
+    border-bottom-color: #d4af37;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-actions button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #302616;
+    border-radius: 8px;
+    background: rgba(8, 6, 4, 0.8);
+    color: #d4af37;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.hero-copy,
+.selection-note,
+.progress-panel,
+.muscle-groups {
+    position: absolute;
+    z-index: 3;
+}
+
+.hero-copy {
+    top: 17vh;
+    left: 4vw;
+    width: min(360px, 31vw);
+}
+
+.eyebrow,
+.note-kicker,
+.panel-label {
+    margin: 0 0 12px;
+    color: #b18a24;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-copy h2 {
+    margin: 0;
+    color: #e4dfd6;
+    font-size: clamp(36px, 4.2vw, 64px);
+    font-weight: 400;
+    line-height: 0.96;
+    text-transform: uppercase;
+}
+
+.hero-copy h2 strong {
+    color: #d4af37;
+    font-weight: 400;
+}
+
+.hero-copy > p:not(.eyebrow) {
+    max-width: 300px;
+    margin: 16px 0 20px;
+    color: #a49b8b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.primary-action,
+.secondary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.primary-action {
+    background: #d4af37;
+    color: #0b0906;
+    font-size: 10px;
+}
+
+.primary-action span {
+    font-size: 18px;
+}
+
+.secondary-action {
+    border: 1px solid #8c6b1f;
+    color: #d4af37;
+}
+
+.selection-note {
+    top: 17vh;
+    right: 4vw;
+    width: 130px;
+    color: #e4dfd6;
+}
+
+.selection-note strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.selection-note p {
+    margin: 0;
+    color: #8d806d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.progress-panel {
+    left: 4vw;
+    bottom: 88px;
+    width: 290px;
+    padding: 12px;
+    border: 1px solid rgba(74, 47, 18, 0.8);
+    border-radius: 8px;
+    background: rgba(8, 6, 4, 0.82);
+}
+
+.panel-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 9px;
+}
+
+.panel-label small {
+    color: #766f63;
+    font-size: 8px;
+    text-transform: none;
+}
+
+.progress-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.progress-items div {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+}
+
+.progress-items span {
+    grid-row: span 2;
+    color: #d4af37;
+    font-size: 17px;
+}
+
+.progress-items strong {
+    color: #e4dfd6;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.progress-items small {
+    grid-column: 2;
+    color: #8d806d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 8px;
+}
+
+.muscle-groups {
+    right: 4vw;
+    bottom: 20px;
+    left: 4vw;
+}
+
+.group-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.group-card {
+    display: grid;
+    flex: 0 0 92px;
+    min-height: 70px;
+    padding: 6px;
+    border: 1px solid #211b12;
+    border-radius: 7px;
+    background: rgba(8, 6, 4, 0.88);
+    color: #e4dfd6;
+    text-align: center;
+    text-decoration: none;
+}
+
+.group-card:hover,
+.group-card.active {
+    border-color: #8c6b1f;
+}
+
+.group-icon {
+    color: #d4af37;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.group-card strong {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.group-card small {
+    color: #8d806d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 8px;
 }
 
 .musculo {
@@ -77,13 +365,52 @@ main {
 }
 
 @media (max-width: 720px) {
+    .site-header {
+        top: 14px;
+        left: 18px;
+        right: 18px;
+    }
+
+    .brand-lockup span,
+    .header-actions button:nth-child(2),
+    .header-actions button:nth-child(3) {
+        display: none;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .hero-copy {
+        top: 22vh;
+        left: 18px;
+        width: min(270px, 65vw);
+    }
+
+    .hero-copy h2 {
+        font-size: clamp(30px, 9vw, 46px);
+    }
+
+    .hero-copy > p:not(.eyebrow),
+    .selection-note,
+    .progress-panel {
+        display: none;
+    }
+
+    .muscle-groups {
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+    }
+
     .anatomy-layout {
         min-height: auto;
         gap: 20px;
     }
 
     .body-reference {
-        width: min(92vw, 560px);
-        height: 380px;
+        flex-basis: 100svh;
+        width: 100vw;
+        height: 100svh;
     }
 }

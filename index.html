@@ -13,10 +13,66 @@
 <body>
 
     <main>
-        <h1>Anatomía muscular</h1>
+        <header class="site-header">
+            <div class="brand-lockup">
+                <h1>Kratos</h1>
+                <span>Conoce. Entrena. Transforma.</span>
+            </div>
+
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a class="active" href="#inicio">Inicio</a>
+                <a href="#musculos">Músculos</a>
+                <a href="#ejercicios">Ejercicios</a>
+                <a href="#rutinas">Rutinas</a>
+                <a href="#progreso">Progreso</a>
+            </nav>
+
+            <div class="header-actions" aria-label="Acciones rápidas">
+                <button type="button" aria-label="Buscar">⌕</button>
+                <button type="button" aria-label="Cambiar tema">◐</button>
+                <button type="button" aria-label="Perfil">◯</button>
+            </div>
+        </header>
 
         <div class="anatomy-layout">
             <img class="body-reference" src="assets/Body_2.png" alt="Referencia visual de la anatomía muscular frontal">
+
+            <section class="hero-copy" id="inicio">
+                <p class="eyebrow">Tu cuerpo. Tu poder.</p>
+                <h2>Conoce tu<br><strong>anatomía.</strong><br>Domina tu<br><strong>fuerza.</strong></h2>
+                <p>Explora cada músculo, comprende cómo funciona y descubre los ejercicios que lo desarrollan.</p>
+                <div class="hero-actions">
+                    <a class="primary-action" href="#musculos">Explorar músculos <span>→</span></a>
+                    <a class="secondary-action" href="#ejercicios">◉ Ver demo</a>
+                </div>
+            </section>
+
+            <aside class="selection-note">
+                <span class="note-kicker">Anatomía interactiva</span>
+                <strong>Selecciona un<br>músculo</strong>
+                <p>Haz clic en cualquier músculo para ver los ejercicios recomendados.</p>
+            </aside>
+
+            <section class="progress-panel" id="progreso">
+                <span class="panel-label">Tu progreso <small>Esta semana</small></span>
+                <div class="progress-items">
+                    <div><span>♨</span><strong>12</strong><small>Entrenamientos</small></div>
+                    <div><span>♧</span><strong>24</strong><small>Ejercicios</small></div>
+                    <div><span>⌁</span><strong>78%</strong><small>Constancia</small></div>
+                </div>
+            </section>
+
+            <section class="muscle-groups" id="musculos">
+                <span class="panel-label">Grupos musculares</span>
+                <div class="group-list">
+                    <a class="group-card active" href="#musculos"><span class="group-icon">♙</span><strong>Pecho</strong><small>12 ejercicios</small></a>
+                    <a class="group-card" href="#musculos"><span class="group-icon">♙</span><strong>Espalda</strong><small>14 ejercicios</small></a>
+                    <a class="group-card" href="#musculos"><span class="group-icon">♜</span><strong>Piernas</strong><small>18 ejercicios</small></a>
+                    <a class="group-card" href="#musculos"><span class="group-icon">♞</span><strong>Brazos</strong><small>10 ejercicios</small></a>
+                    <a class="group-card" href="#musculos"><span class="group-icon">♙</span><strong>Hombros</strong><small>8 ejercicios</small></a>
+                    <a class="group-card" href="#musculos"><span class="group-icon">♙</span><strong>Abdomen</strong><small>10 ejercicios</small></a>
+                </div>
+            </section>
 
             <div class="anatomy-container">
             <svg width="415" height="415" viewBox="0 0 415 415" fill="none" xmlns="http://www.w3.org/2000/svg">
