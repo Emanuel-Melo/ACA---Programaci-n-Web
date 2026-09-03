@@ -104,11 +104,11 @@ h1 {
     border-radius: 0;
     background: transparent;
     object-fit: contain;
-    object-position: center 15%;
+    object-position: center 0%;
     transform: 
-        scale(calc(3.2 - (2.45 * var(--scroll-progress)))) 
+        scale(calc(4.8 - (4.05 * var(--scroll-progress)))) 
         translateY(calc(var(--scroll-progress) * 160px));
-    transform-origin: center 15%;
+    transform-origin: center 0%;
     transition: transform 80ms linear;
 }
 
