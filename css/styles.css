@@ -92,33 +92,24 @@ h1 {
     flex: 0 0 calc(100svh - 76px);
     width: 100vw;
     height: calc(100svh - 76px);
+    overflow: hidden;
 }
 
-.body-reference,
-.body-reference-full {
+.body-reference {
     position: absolute;
     inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     border-radius: 0;
-    background: var(--panel);
-    transition: transform 80ms linear, opacity 80ms linear;
-}
-
-.body-reference {
-    object-fit: cover;
-    object-position: center top;
-    transform: scale(calc(1.3 - (0.3 * var(--scroll-progress))));
-    transform-origin: center top;
-    opacity: calc(1 - var(--scroll-progress));
-}
-
-.body-reference-full {
+    background: transparent;
     object-fit: contain;
-    object-position: center center;
-    transform: scale(calc(0.9 + (0.1 * var(--scroll-progress))));
-    opacity: var(--scroll-progress);
+    object-position: center 15%;
+    transform: 
+        scale(calc(3.2 - (2.45 * var(--scroll-progress)))) 
+        translateY(calc(var(--scroll-progress) * 160px));
+    transform-origin: center 15%;
+    transition: transform 80ms linear;
 }
 
 .site-header {
