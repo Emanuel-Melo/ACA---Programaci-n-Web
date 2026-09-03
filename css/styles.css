@@ -64,7 +64,7 @@ h1 {
 }
 
 .anatomy-container,
-.body-reference {
+.body-stage {
     width: 100%;
 }
 
@@ -84,7 +84,7 @@ h1 {
     max-width: 415px;
 }
 
-.body-reference {
+.body-stage {
     display: block;
     position: sticky;
     top: 76px;
@@ -92,32 +92,33 @@ h1 {
     flex: 0 0 calc(100svh - 76px);
     width: 100vw;
     height: calc(100svh - 76px);
+}
+
+.body-reference,
+.body-reference-full {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: var(--panel);
+    transition: transform 80ms linear, opacity 80ms linear;
+}
+
+.body-reference {
     object-fit: cover;
     object-position: center top;
-    border-radius: 0;
     transform: scale(calc(1.3 - (0.3 * var(--scroll-progress))));
     transform-origin: center top;
-    transition: transform 80ms linear;
+    opacity: calc(1 - var(--scroll-progress));
 }
 
-.anatomy-layout.scrolled {
-    display: flex;
-    width: 100vw;
-    min-height: calc(100svh + 800px - 76px);
-    padding-top: 0;
-}
-
-.anatomy-layout.scrolled .body-reference {
-    width: 100vw;
-}
-
-.anatomy-layout.scrolled .hero-copy,
-.anatomy-layout.scrolled .selection-note,
-.anatomy-layout.scrolled .progress-panel,
-.anatomy-layout.scrolled .muscle-groups {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 180ms ease;
+.body-reference-full {
+    object-fit: contain;
+    object-position: center center;
+    transform: scale(calc(0.9 + (0.1 * var(--scroll-progress))));
+    opacity: var(--scroll-progress);
 }
 
 .site-header {
@@ -461,22 +462,11 @@ h1 {
         gap: 20px;
     }
 
-    .anatomy-layout.scrolled {
-        display: flex;
-        width: 100vw;
-        min-height: calc(100svh + 800px - 64px);
-        padding-top: 0;
-        gap: 20px;
-    }
-
-    .body-reference {
+    .body-stage {
         top: 64px;
         flex-basis: calc(100svh - 64px);
         width: 100vw;
         height: calc(100svh - 64px);
     }
 
-    .anatomy-layout.scrolled .body-reference {
-        width: 100vw;
-    }
 }
