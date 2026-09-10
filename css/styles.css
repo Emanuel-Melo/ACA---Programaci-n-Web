@@ -73,7 +73,7 @@ h1 {
 
 .anatomy-container {
     position: absolute;
-    top: calc(800px - var(--header-offset) + 50svh - 256px);
+    top: calc(800px - var(--header-offset) + 50svh - 286px);
     left: 50%;
     z-index: 1;
     display: grid;
@@ -116,12 +116,13 @@ h1 {
     background: transparent;
     object-fit: contain;
     object-position: center 0%;
+    opacity: clamp(0, calc((1 - var(--scroll-progress)) * 4), 1);
     transform:
         translateX(calc(var(--scroll-progress) * var(--body-final-x)))
         scale(calc(4.8 - (4.05 * var(--scroll-progress))))
-        translateY(calc(var(--scroll-progress) * 160px));
+        translateY(calc(var(--scroll-progress) * 118.5px));
     transform-origin: center 0%;
-    transition: transform 80ms linear;
+    transition: transform 80ms linear, opacity 80ms linear;
 }
 
 .site-header {
