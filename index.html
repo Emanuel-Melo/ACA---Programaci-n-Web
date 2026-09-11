@@ -18,9 +18,15 @@
                 <h1>Kratos</h1>
                 <span>Conoce. Entrena. Transforma.</span>
             </div>
+
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a class="active" href="#inicio">Inicio</a>
+                <a href="#anatomia">Anatomía</a>
+                <a href="#rutina">Mi rutina</a>
+            </nav>
         </header>
 
-        <div class="anatomy-layout">
+        <div class="anatomy-layout" id="anatomia">
             <div class="body-stage">
                 <img class="body-reference" src="assets/Body_2.png" alt="Referencia visual de la anatomía muscular frontal">
             </div>
@@ -349,6 +355,43 @@
             </div>
 
         </div>
+
+        <section class="routine-section" id="rutina" aria-labelledby="routine-title">
+            <div class="routine-copy">
+                <p class="eyebrow">Plan personal</p>
+                <h2 id="routine-title">Diseña tu rutina</h2>
+                <p>Guarda una intención de entrenamiento y vuelve a ella cuando explores tus músculos.</p>
+            </div>
+
+            <form class="routine-form" id="routine-form">
+                <div class="form-field">
+                    <label for="routine-name">Nombre de la rutina</label>
+                    <input id="routine-name" name="routineName" type="text" placeholder="Fuerza de tren superior" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="training-level">Nivel</label>
+                    <select id="training-level" name="level">
+                        <option value="Principiante">Principiante</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
+                    </select>
+                </div>
+
+                <div class="form-field form-field-wide">
+                    <label for="routine-notes">Objetivo</label>
+                    <textarea id="routine-notes" name="notes" rows="3" placeholder="Escribe el objetivo de tu entrenamiento" required></textarea>
+                </div>
+
+                <button class="routine-submit" type="submit">Guardar rutina</button>
+                <p class="routine-status" id="routine-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <footer class="site-footer" id="informacion">
+            <span>Kratos · Anatomía interactiva</span>
+            <a href="#inicio">Volver al inicio</a>
+        </footer>
 
         <aside class="exercise-popover" aria-live="polite" aria-hidden="true">
             <div class="exercise-popover-shell">
