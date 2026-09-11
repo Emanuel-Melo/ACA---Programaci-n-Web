@@ -24,6 +24,10 @@ body {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
     background-color: var(--obsidian);
+    background-image: url("../assets/Fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     color: var(--gold);
     overflow-x: hidden;
 }
@@ -606,7 +610,7 @@ h1 {
 }
 
 .musculo path {
-    fill: var(--gold);
+    fill: #000000;
     stroke: var(--deep-brown);
     transition: fill 160ms ease, stroke 160ms ease;
 }

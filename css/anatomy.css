@@ -10,7 +10,7 @@
 }
 
 .musculo path {
-	fill: var(--gold);
+	fill: #000000;
 	stroke: var(--deep-brown);
 }
 
