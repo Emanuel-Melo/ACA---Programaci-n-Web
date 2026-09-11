@@ -302,65 +302,238 @@ h1 {
 
 .exercise-popover {
     position: fixed;
-    right: 4vw;
+    right: clamp(16px, 4vw, 56px);
     top: 50%;
     z-index: 5;
-    width: min(240px, 30vw);
-    padding: 18px;
-    border: 1px solid var(--bronze);
-    border-radius: 8px;
-    background: rgba(12, 9, 6, 0.96);
+    width: min(760px, calc(100vw - 32px));
     color: var(--ivory);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-    display: none;
     visibility: hidden;
     pointer-events: none;
+    opacity: 0;
     transform: translateY(10px);
-    transition: opacity 160ms ease, transform 160ms ease;
+    transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
 }
 
 .exercise-popover.visible {
-    display: block;
     visibility: visible;
+    opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
 }
 
+.exercise-popover-shell {
+    position: relative;
+    padding: 24px 34px 22px;
+    border: 1px solid var(--gold-bright);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 78% 10%, rgba(185, 116, 37, 0.12), transparent 18%),
+        linear-gradient(135deg, rgba(16, 11, 7, 0.98), rgba(0, 0, 0, 0.96));
+    color: var(--ivory);
+    box-shadow: 0 20px 90px rgba(0, 0, 0, 0.75), inset 0 0 24px rgba(230, 184, 92, 0.08);
+    overflow: hidden;
+}
+
+.exercise-popover-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(230, 184, 92, 0.35);
+    transform: scale(0.992);
+    pointer-events: none;
+}
+
 .exercise-popover-close {
     position: absolute;
-    top: 6px;
-    right: 8px;
-    border: 0;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--gold-bright);
+    border-radius: 50%;
     background: transparent;
-    color: var(--muted);
+    color: var(--gold-bright);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1;
 }
 
+.exercise-popover-content {
+    display: grid;
+    grid-template-columns: minmax(330px, 1.35fr) minmax(220px, 0.85fr);
+    align-items: center;
+    gap: 30px;
+}
+
+.exercise-popover-copy {
+    min-width: 0;
+}
+
 .exercise-popover-label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--gold);
-    font-size: 9px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: var(--gold-bright);
+    font-size: 11px;
+    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
+.exercise-popover-label-icon {
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.exercise-popover-label::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: var(--gold-bright);
+    vertical-align: middle;
+    opacity: 0.9;
+}
+
+.exercise-popover-muscle-block {
+    margin-bottom: 12px;
+}
+
 .exercise-popover-muscle {
     display: block;
-    margin-bottom: 8px;
+    margin: 0 0 10px;
     color: var(--ivory);
-    font-size: 15px;
-    font-weight: 400;
+    font-size: clamp(34px, 3vw, 54px);
+    font-weight: 700;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.05;
     text-transform: uppercase;
 }
 
 .exercise-popover-name {
     margin: 0;
     color: var(--gold-bright);
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: clamp(21px, 1.8vw, 30px);
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.exercise-popover-description {
+    max-width: 420px;
+    margin: 14px 0 16px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.exercise-popover-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(105px, 1fr));
+    gap: 12px;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(230, 184, 92, 0.4);
+}
+
+.exercise-popover-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-bright);
+    color: var(--gold-bright);
+    font-size: 16px;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: var(--ivory);
+    font-size: 11px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.muscle-stat-value {
+    color: var(--gold-bright);
+}
+
+.exercise-popover-muscle-visual {
+    display: grid;
+    place-items: center;
+    min-height: min(360px, 50vh);
+}
+
+.exercise-popover-svg-frame {
+    width: min(260px, 210px);
+    aspect-ratio: 1 / 1;
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(230, 184, 92, 0.35);
+    background:
+        radial-gradient(circle, rgba(230, 184, 92, 0.04), transparent),
+        rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 50px rgba(230, 184, 92, 0.08);
+}
+
+.exercise-popover-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.exercise-popover-svg .musculo path {
+    fill: var(--gold-bright);
+    stroke: var(--ivory);
+    stroke-width: 2;
+}
+
+.exercise-popover-svg .musculo {
+    cursor: default;
+}
+
+.exercise-popover-svg g {
+    transform-origin: center;
+}
+
+@media (max-width: 820px) {
+    .exercise-popover {
+        left: 16px;
+        right: 16px;
+        width: auto;
+    }
+
+    .exercise-popover-content {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-popover-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-popover-muscle-visual {
+        min-height: auto;
+    }
 }
 
 .progress-panel {
