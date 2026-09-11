@@ -75,7 +75,7 @@ h1 {
     position: absolute;
     top: calc(800px - var(--header-offset) + 50svh - 286px);
     left: 50%;
-    z-index: 1;
+    z-index: 3;
     display: grid;
     width: min(620px, 72vw);
     opacity: var(--scroll-progress);
@@ -83,9 +83,9 @@ h1 {
     pointer-events: auto;
     place-items: center;
     padding: 24px;
-    border: 1px solid var(--deep-brown);
+    border: none;
     border-radius: 18px;
-    background: var(--panel);
+    background: transparent;
 }
 
 .anatomy-container svg {
@@ -93,17 +93,19 @@ h1 {
     width: 100%;
     height: auto;
     max-width: 620px;
+    pointer-events: auto;
 }
 
 .body-stage {
     display: block;
     position: sticky;
     top: var(--header-offset);
-    z-index: 2;
+    z-index: 0;
     flex: 0 0 calc(100svh - 76px);
     width: 100vw;
     height: calc(100svh - 76px);
     overflow: hidden;
+    pointer-events: none;
 }
 
 .body-reference {
@@ -298,6 +300,69 @@ h1 {
     line-height: 1.45;
 }
 
+.exercise-popover {
+    position: fixed;
+    right: 4vw;
+    top: 50%;
+    z-index: 5;
+    width: min(240px, 30vw);
+    padding: 18px;
+    border: 1px solid var(--bronze);
+    border-radius: 8px;
+    background: rgba(12, 9, 6, 0.96);
+    color: var(--ivory);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.exercise-popover.visible {
+    display: block;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.exercise-popover-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.exercise-popover-label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.exercise-popover-muscle {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--ivory);
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.exercise-popover-name {
+    margin: 0;
+    color: var(--gold-bright);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
 .progress-panel {
     left: 4vw;
     bottom: 88px;
@@ -407,11 +472,17 @@ h1 {
 .musculo path {
     fill: var(--gold);
     stroke: var(--deep-brown);
+    transition: fill 160ms ease, stroke 160ms ease;
 }
 
 .musculo.seleccionado path {
-    fill: var(--bronze);
-    stroke: var(--deep-brown);
+    fill: var(--gold-bright) !important;
+    stroke: var(--ivory) !important;
+}
+
+.musculo path.seleccionado {
+    fill: var(--gold-bright) !important;
+    stroke: var(--ivory) !important;
 }
 
 [id^="Silueta"] {
@@ -453,6 +524,13 @@ h1 {
     .selection-note,
     .progress-panel {
         display: none;
+    }
+
+    .exercise-popover {
+        right: 18px;
+        top: auto;
+        bottom: 24vh;
+        width: min(240px, calc(100vw - 36px));
     }
 
     .muscle-groups {
