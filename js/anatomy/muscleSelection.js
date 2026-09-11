@@ -6,22 +6,7 @@ function getExercisePanel() {
 }
 
 function cloneMuscleIntoPopover(musculo) {
-	const targetGroup = document.querySelector(".exercise-popover-svg-content");
-	if (!targetGroup) {
-		return;
-	}
-
-	targetGroup.innerHTML = "";
-	const clone = musculo.cloneNode(true);
-
-	clone.querySelectorAll("path").forEach((path) => {
-		path.style.setProperty("fill", "#e6b85c", "important");
-		path.style.setProperty("stroke", "#efe3cf", "important");
-		path.style.setProperty("stroke-width", "1.5", "important");
-	});
-
-	clone.classList.add("popover-muscle-clone");
-	targetGroup.appendChild(clone);
+	return;
 }
 
 export function initMuscleSelection() {
@@ -39,12 +24,15 @@ export function initMuscleSelection() {
 
 		const seleccionado = true;
 		musculo.classList.add("seleccionado");
-		const [muscleName, exerciseName] = getMuscleExercise(musculo.id);
+		const [muscleName, exerciseName, exerciseDescription, equipment, reps] = getMuscleExercise(musculo.id);
 		const exercisePanel = getExercisePanel();
 
 		exercisePanel.querySelector(".exercise-popover-muscle").textContent = muscleName;
 		exercisePanel.querySelector(".exercise-popover-name").textContent = exerciseName;
+		exercisePanel.querySelector(".exercise-popover-description").textContent = exerciseDescription;
 		exercisePanel.querySelector(".muscle-stat-value").textContent = muscleName;
+		exercisePanel.querySelector(".equipment-stat-value").textContent = equipment;
+		exercisePanel.querySelector(".reps-stat-value").textContent = reps;
 		exercisePanel.classList.add("visible");
 		exercisePanel.setAttribute("aria-hidden", "false");
 		exercisePanel.style.setProperty("transform", "translateY(0)", "important");
